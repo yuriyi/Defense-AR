@@ -5,7 +5,7 @@
 <script src="../source/vendor/three.js/examples/js/loaders/MTLLoader.js"></script>
 <script src="../source/vendor/three.js/examples/js/loaders/OBJLoader.js"></script>
 <!-- ar.js -->
-<script src="../build/ar.js"></script>
+<script src="../source/build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../'</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace; color: red;'>
@@ -82,7 +82,7 @@
 
 	// create atToolkitContext
 	var arToolkitContext = new THREEx.ArToolkitContext({
-		cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
+		cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/camera_para.dat',
 		detectionMode: 'mono',
 	})
 	// initialize it
@@ -108,9 +108,9 @@
 	// init controls for camera
 	var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
 		type : 'pattern',
-		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/S1.patt',
-		 patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro',
-		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji',
+		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/S1.patt',
+		 patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.hiro',
+		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.kanji',
 		// as we control the camera, set changeMatrixMode: 'cameraTransformMatrix'
 		changeMatrixMode: 'cameraTransformMatrix'
 	})

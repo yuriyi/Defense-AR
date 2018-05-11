@@ -4,9 +4,11 @@
 <script src="../source/vendor/three.js/build/three.min.js"></script>
 <script src="../source/vendor/three.js/examples/js/loaders/MTLLoader.js"></script>
 <script src="../source/vendor/three.js/examples/js/loaders/OBJLoader.js"></script>
+<script src="../source/vendor/three.js/examples/js/loaders/FontLoader.js"></script>
 <!-- ar.js -->
 <script src="../source/build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../'</script>
+<script>THREEx.Font = '../source/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json'</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace; color: red;'>
 	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
@@ -122,93 +124,50 @@
     //////////////////////////////////////////////////////////////////////////////////
 	
 	//			LIGHT
-	var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	light1.position.set( 0, 1, 0 );
-	light2.position.set( 0, -1, 0 );
-	scene.add(light1);
-	scene.add(light2);
+	// var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	// var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	// light1.position.set( 0, 1, 0 );
+	// light2.position.set( 0, -1, 0 );
+	// scene.add(light1);
+	// scene.add(light2);
 
-	//			MATERIAL
+	//////////////////////////////////////////////////////////////////////////////////
+	//        create text
+	//////////////////////////////////////////////////////////////////////////////////
 
-	// var material	= new THREE.MeshPhongMaterial({
-	// 	transparent : true,
-	// 	opacity: .8,
-	// 	side: THREE.DoubleSide,
-	// 	color: 0x1592d2,
-	//	blending: THREE.NormalBlending
-	// });
+	var loader = new THREE.FontLoader();
+	loader.load( THREEx.Font, function ( font ) {
 
-	var materialS1	= new THREE.MeshPhongMaterial({
-		transparent : true,
-		opacity: .7,
-		side: THREE.FrontSide,
-		color: 0xff4fea,
-		specular: 0x750606,
-		shininess: 30
-	});
+		var geometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
+			font: font,
+			size: 80,
+			height: 5,
+			curveSegments: 12,
+			bevelEnabled: true,
+			bevelThickness: 10,
+			bevelSize: 8,
+			bevelSegments: 5
+		} );
+	} );
 
-	var materialS2	= new THREE.MeshNormalMaterial({
+	var material	= new THREE.MeshNormalMaterial({
 		transparent : false,
 		opacity: 1,
-		side: THREE.FrontSide//,
-		// color: 0x48a6e8,
-		// specular: 0x1a3c1e,
-		// shininess: 0
+		side: THREE.FrontSide
 	});
 
-	//			EXISTING GEOMETRIES
-	// var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
-	// var mesh	= new THREE.Mesh( geometry, material );
-	// mesh.position.set (0,1,0);
-	// mesh.scale.set(.2,.2,.2);
-	// scene.add( mesh );
+	var mesh = new THREE.Mesh( geometry, material );
+	mesh.position.set (0,1,0);
+	mesh.scale.set(1,1,1);
 	
-	// onRenderFcts.push(function(delta){
-	// 	mesh.rotation.y += Math.PI*delta;
-	// })
-
-	//////////////////////////////////////////////////////////////////////////////////
-	//        load object
-	//////////////////////////////////////////////////////////////////////////////////
-
-	var objectScale = .9;
+	scene.add(mesh)
 	
+	onRenderFcts.push(function(delta){
+		object.rotation.y += Math.PI*delta * .5
+		object..position.y += delta * .5;
+	});
 
-		var objLoader = new THREE.OBJLoader();
-  		objLoader.setPath("./models/");
-	// 				Wavemode: S1
-  		objLoader.load("S1.obj", function (object) {
-			object.traverse( function ( child ) {
-				if ( child instanceof THREE.Mesh ) {
-					child.material = materialS1;
-				}
-			});
-   		 	object.position.set (0,1,0);
-   		 	object.scale.set (objectScale,objectScale,objectScale);
-   		 	scene.add(object);
-  	  		onRenderFcts.push(function(delta){
-//				object.rotation.x += Math.PI*delta * .0125
-				object.rotation.y += Math.PI*delta * .125
-			});
-  		});
-	// 				Wavemode: S2
-  		objLoader.load("S2.obj", function (object) {
-			object.traverse( function ( child ) {
-				if ( child instanceof THREE.Mesh ) {
-					child.material = materialS2;
-				}
-			});
-   		 	object.position.set (0,1,0);
-   		 	object.scale.set (objectScale,objectScale,objectScale);
-   		 	scene.add(object);
-  	  		onRenderFcts.push(function(delta){
-//				object.rotation.x += Math.PI*delta * .0125
-				object.rotation.y += Math.PI*delta * .125
-			});
-  		});
-
-
+	
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////

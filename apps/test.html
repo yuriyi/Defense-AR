@@ -173,7 +173,7 @@
 	 var loader = new THREE.FontLoader();
 	 loader.load( "../source/three.js/examples/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
 
-	var geometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
+	var Textgeometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
 			font: font,
 			size: 80,
 			height: 5,
@@ -185,21 +185,21 @@
 		} );
 	} );
 
-	var material	= new THREE.MeshNormalMaterial({
+	var Textmaterial	= new THREE.MeshNormalMaterial({
 		transparent : false,
 		opacity: 1,
 		side: THREE.FrontSide
 	});
 
-	var mesh = new THREE.Mesh( geometry, material );
-	mesh.position.set (0,1,0);
-	mesh.scale.set(1,1,1);
+	var textmesh = new THREE.Mesh( Textgeometry, Textmaterial );
+	textmesh.position.set (0,1,0);
+	textmesh.scale.set(1,1,1);
 	
-	arWorldRoot.add(mesh)
+	arWorldRoot.add(textmesh)
 	
 	onRenderFcts.push(function(){
-		mesh.rotation.y += .05
-		// mesh.position.y += delta * .5;
+		textmesh.rotation.y += .05
+		// textmesh.position.y += delta * .5;
 	});
 
 	

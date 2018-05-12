@@ -4,7 +4,8 @@
 <script src="../source/three.js/examples/vendor/three.js/build/three.min.js"></script>
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/MTLLoader.js"></script>
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/OBJLoader.js"></script>
-<!-- <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/FontLoader.js"></script> -->
+<script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/FontLoader.js"></script>
+<script src="../source/three.js/src/geometries/TextGeomety.js"></script>
 <!-- ar.js -->
 <script src="../source/three.js/build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../source/three.js/'</script>
@@ -149,13 +150,14 @@
 
 	var arWorldRoot = smoothedRoot
 
-	// add a torus knot
+	// add a torus knot and a box
 	var geometry	= new THREE.CubeGeometry(1,1,1);
 	var material	= new THREE.MeshNormalMaterial({
 		transparent : true,
 		opacity: 0.5,
 		side: THREE.FrontSide
-	}); 
+	});
+
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= geometry.parameters.height/3
 	arWorldRoot.add( mesh );

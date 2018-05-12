@@ -6,7 +6,7 @@
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/OBJLoader.js"></script>
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/FontLoader.js"></script>
 <!-- ar.js -->
-<script src="../source/build/ar.js"></script>
+<script src="../source/three.js/build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../source/three.js/'</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace; color: red;'>
@@ -50,11 +50,11 @@
 
 	var arToolkitSource = new THREEx.ArToolkitSource({
 		// to read from the webcam 
-		sourceType : 'webcam',
+		// sourceType : 'webcam',
 		
 		// // to read from an image
-		  // sourceType : 'image',
-		  // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/images/img1.jpg',
+		  sourceType : 'image',
+		  sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/img1.jpg',
 
 		// to read from a video
 		// sourceType : 'video',
@@ -134,37 +134,37 @@
 	//        create text
 	//////////////////////////////////////////////////////////////////////////////////
 
-	// var loader = new THREE.FontLoader();
-	// loader.load( '../source/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+	var loader = new THREE.FontLoader();
+	loader.load( '../source/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
 
-	// 	var geometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
-	// 		font: font,
-	// 		size: 80,
-	// 		height: 5,
-	// 		curveSegments: 12,
-	// 		bevelEnabled: true,
-	// 		bevelThickness: 10,
-	// 		bevelSize: 8,
-	// 		bevelSegments: 5
-	// 	} );
-	// } );
+		var geometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
+			font: font,
+			size: 80,
+			height: 5,
+			curveSegments: 12,
+			bevelEnabled: true,
+			bevelThickness: 10,
+			bevelSize: 8,
+			bevelSegments: 5
+		} );
+	} );
 
-	// var material	= new THREE.MeshNormalMaterial({
-	// 	transparent : false,
-	// 	opacity: 1,
-	// 	side: THREE.FrontSide
-	// });
+	var material	= new THREE.MeshNormalMaterial({
+		transparent : false,
+		opacity: 1,
+		side: THREE.FrontSide
+	});
 
-	// var mesh = new THREE.Mesh( geometry, material );
-	// mesh.position.set (0,1,0);
-	// mesh.scale.set(1,1,1);
+	var mesh = new THREE.Mesh( geometry, material );
+	mesh.position.set (0,1,0);
+	mesh.scale.set(1,1,1);
 	
-	// scene.add(mesh)
+	scene.add(mesh)
 	
-	// onRenderFcts.push(function(delta){
-	// 	object.rotation.y += Math.PI*delta * .5
-	// 	object..position.y += delta * .5;
-	// });
+	onRenderFcts.push(function(delta){
+		object.rotation.y += Math.PI*delta * .5
+		object..position.y += delta * .5;
+	});
 
 	
 	//////////////////////////////////////////////////////////////////////////////////

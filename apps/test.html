@@ -171,14 +171,14 @@
 	var loader = new THREE.FontLoader();
 	loader.load( "../source/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
 
-			var textgeometry1 = new THREE.TextGeometry( 'IF YOU SEE THIS', {
+			var textgeometry1 = new THREE.TextGeometry( 'HELLO', {
 				font: font,
 				size: 10,
 				height: 5,
 				curveSegments: 12
 			} );
 
-			var textgeometry2 = new THREE.TextGeometry( 'THEN I AM HAPPY', {
+			var textgeometry2 = new THREE.TextGeometry( 'WORLD!', {
 				font: font,
 				size: 10,
 				height: 5,
@@ -199,7 +199,7 @@
 			var textmesh2 = new THREE.Mesh( textgeometry2, 
 				textmaterial );
 
-		textmesh1.position.set (0,.6,0);
+		textmesh1.position.set (0,.9,0);
 		textmesh1.scale.set(.1,.1,.1);
 
 		textmesh2.position.set (0,.3,0);
@@ -208,16 +208,17 @@
 		arWorldRoot.add(textmesh1)
 		arWorldRoot.add(textmesh2)
 
+		var scaleFrame = .001;
 		onRenderFcts.push(function(){
-			textmesh1.scale.x += .0001
-			textmesh1.scale.y += .0001
-			textmesh1.scale.z += .0001
-			textmesh1.position.y += .001;
+			textmesh1.scale.x += Math.sin(scaleFrame)
+			textmesh1.scale.y += Math.sin(scaleFrame)
+			textmesh1.scale.z += Math.sin(scaleFrame)
+			textmesh1.position.y += Math.sin(scaleFrame);
 
-			textmesh2.scale.x += .0001
-			textmesh2.scale.y += .0001
-			textmesh2.scale.z += .0001
-			textmesh2.position.y += .001;
+			textmesh1.scale.x += Math.sin(scaleFrame)
+			textmesh1.scale.y += Math.sin(scaleFrame)
+			textmesh1.scale.z += Math.sin(scaleFrame)
+			textmesh2.position.y += Math.sin(scaleFrame);
 		});
 	} );
 

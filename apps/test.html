@@ -5,7 +5,7 @@
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/MTLLoader.js"></script>
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/OBJLoader.js"></script>
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/FontLoader.js"></script>
-<script src="../source/three.js/src/geometries/TextGeomety.js"></script>
+<script src="../source/three.js/src/geometries/TextGeometry.js"></script>
 <!-- ar.js -->
 <script src="../source/three.js/build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../source/three.js/'</script>
@@ -172,18 +172,18 @@
 		mesh.rotation.x += 0.1
 	})
 
-	 var loader = new THREE.FontLoader();
+	var loader = new THREE.FontLoader();
 	 loader.load( "../source/three.js/examples/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
 
-	var Textgeometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
-			font: font,
-			size: 80,
-			height: 5,
-			curveSegments: 12,
-			bevelEnabled: true,
-			bevelThickness: 10,
-			bevelSize: 8,
-			bevelSegments: 5
+		var Textgeometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
+				font: font,
+				size: 80,
+				height: 5,
+				curveSegments: 12,
+				bevelEnabled: true,
+				bevelThickness: 10,
+				bevelSize: 8,
+				bevelSegments: 5
 		} );
 	} );
 

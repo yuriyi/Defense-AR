@@ -8,7 +8,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace; color: red;'>
 	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
-		Test example
+		This is an AR test example.
 	</div>
 <script>
 	//////////////////////////////////////////////////////////////////////////////////
@@ -208,16 +208,16 @@
 		arWorldRoot.add(textmesh1)
 		arWorldRoot.add(textmesh2)
 
-		var scaleFrame = .001;
+		var scaleFrame = .0001;
 		onRenderFcts.push(function(){
 			textmesh1.scale.x += Math.sin(scaleFrame)
 			textmesh1.scale.y += Math.sin(scaleFrame)
 			textmesh1.scale.z += Math.sin(scaleFrame)
 			textmesh1.position.y += Math.sin(scaleFrame);
 
-			textmesh1.scale.x += Math.sin(scaleFrame)
-			textmesh1.scale.y += Math.sin(scaleFrame)
-			textmesh1.scale.z += Math.sin(scaleFrame)
+			textmesh2.scale.x += Math.sin(scaleFrame)
+			textmesh2.scale.y += Math.sin(scaleFrame)
+			textmesh2.scale.z += Math.sin(scaleFrame)
 			textmesh2.position.y += Math.sin(scaleFrame);
 		});
 	} );

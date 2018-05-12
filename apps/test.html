@@ -146,39 +146,47 @@
 
 	var arWorldRoot = smoothedRoot
 
-	// add a torus knot and a box
-	var geometry	= new THREE.CubeGeometry(1,1,1);
-	var material	= new THREE.MeshNormalMaterial({
-		transparent : true,
-		opacity: 0.5,
-		side: THREE.FrontSide
-	});
+	// // add a torus knot and a box
+	// var geometry	= new THREE.CubeGeometry(1,1,1);
+	// var material	= new THREE.MeshNormalMaterial({
+	// 	transparent : true,
+	// 	opacity: 0.5,
+	// 	side: THREE.FrontSide
+	// });
 
-	var mesh	= new THREE.Mesh( geometry, material );
-	mesh.position.y	= geometry.parameters.height/3
-	arWorldRoot.add( mesh );
+	// var mesh	= new THREE.Mesh( geometry, material );
+	// mesh.position.y	= geometry.parameters.height/3
+	// arWorldRoot.add( mesh );
 	
-	var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
-	var material	= new THREE.MeshNormalMaterial(); 
-	var mesh	= new THREE.Mesh( geometry, material );
-	mesh.position.y	= 0.5
-	arWorldRoot.add( mesh );
+	// var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
+	// var material	= new THREE.MeshNormalMaterial(); 
+	// var mesh	= new THREE.Mesh( geometry, material );
+	// mesh.position.y	= 0.5
+	// arWorldRoot.add( mesh );
 	
-	onRenderFcts.push(function(){
-		mesh.rotation.x += 0.1
-	})
+	// onRenderFcts.push(function(){
+	// 	mesh.rotation.x += 0.1
+	// })
 
 	var loader = new THREE.FontLoader();
 	loader.load( "../source/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
 
-			var textgeometry = new THREE.TextGeometry( 'TEST', {
+			var textgeometry1 = new THREE.TextGeometry( 'IF YOU SEE THIS', {
 				font: font,
 				size: 10,
 				height: 5,
 				curveSegments: 12
 			} );
 
-			THREE.GeometryUtils.center( textgeometry )
+			var textgeometry2 = new THREE.TextGeometry( 'THEN I AM HAPPY', {
+				font: font,
+				size: 10,
+				height: 5,
+				curveSegments: 12
+			} );
+
+			THREE.GeometryUtils.center( textgeometry1 )
+			THREE.GeometryUtils.center( textgeometry2 )
 
 			var textmaterial	= new THREE.MeshNormalMaterial({
 				transparent : false,
@@ -186,17 +194,25 @@
 				side: THREE.FrontSide
 			});
 
-			var textmesh = new THREE.Mesh( textgeometry, 
+			var textmesh1 = new THREE.Mesh( textgeometry1, 
+				textmaterial );
+			var textmesh2 = new THREE.Mesh( textgeometry2, 
 				textmaterial );
 
-		textmesh.position.set (0,.2,0);
-		textmesh.scale.set(.1,.1,.1);
-	
-		arWorldRoot.add(textmesh)
-	
+		textmesh1.position.set (0,.6,0);
+		textmesh1.scale.set(.1,.1,.1);
+
+		textmesh2.position.set (0,.3,0);
+		textmesh2.scale.set(.1,.1,.1);
+		
+		arWorldRoot.add(textmesh1)
+		arWorldRoot.add(textmesh2)
+
 		onRenderFcts.push(function(){
-			textmesh.rotation.y += .025
-		// textmesh.position.y += delta * .5;
+			textmesh1.rotation.y += .025
+			textmesh2.rotation.y += .025
+			textmesh1.position.y += .0000001;
+			textmesh2.position.y += .0000001;
 		});
 	} );
 

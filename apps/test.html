@@ -209,10 +209,15 @@
 		arWorldRoot.add(textmesh2)
 
 		onRenderFcts.push(function(){
-			textmesh1.rotation.y += .025
-			textmesh2.rotation.y += .025
-			textmesh1.position.y += .0000001;
-			textmesh2.position.y += .0000001;
+			textmesh1.scale.x += .0001
+			textmesh1.scale.y += .0001
+			textmesh1.scale.z += .0001
+			textmesh1.position.y += .001;
+
+			textmesh2.scale.x += .0001
+			textmesh2.scale.y += .0001
+			textmesh2.scale.z += .0001
+			textmesh2.position.y += .001;
 		});
 	} );
 

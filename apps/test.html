@@ -135,7 +135,7 @@
 	//////////////////////////////////////////////////////////////////////////////////
 
 	var loader = new THREE.FontLoader();
-	loader.load( '../source/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+	loader.load( "../source/three.js/examples/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
 
 		var geometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
 			font: font,
@@ -157,13 +157,13 @@
 
 	var mesh = new THREE.Mesh( geometry, material );
 	mesh.position.set (0,1,0);
-	mesh.scale.set(1,1,1);
+	// mesh.scale.set(1,1,1);
 	
 	scene.add(mesh)
 	
 	onRenderFcts.push(function(delta){
-		object.rotation.y += Math.PI*delta * .5
-		object..position.y += delta * .5;
+		mesh.rotation.y += Math.PI*delta * .5
+		// mesh.position.y += delta * .5;
 	});
 
 	

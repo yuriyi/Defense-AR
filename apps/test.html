@@ -171,26 +171,26 @@
 	var loader = new THREE.FontLoader();
 	loader.load( "../source/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
 
-		var textgeometry = new THREE.TextGeometry( 'TEST', {
+			var textgeometry = new THREE.TextGeometry( 'TEST', {
 				font: font,
 				size: 10,
 				height: 5,
-				curveSegments: 12,
-				bevelEnabled: true,
-				bevelThickness: 10,
-				bevelSize: 8,
-				bevelSegments: 5
-		} );
+				curveSegments: 12
+			} );
 
-		var textmaterial	= new THREE.MeshNormalMaterial({
-			transparent : false,
-			opacity: 1,
-			side: THREE.FrontSide
-		});
+			textgeometry.computeBoundingBox();
+			var centerOffset = -0.5 * ( textgeometry.boundingBox.max.x - textgeometry.boundingBox.min.x );
 
-		var textmesh = new THREE.Mesh( textgeometry, textmaterial );
+			var textmaterial	= new THREE.MeshNormalMaterial({
+				transparent : false,
+				opacity: 1,
+				side: THREE.FrontSide
+			});
 
-		textmesh.position.set (0,1,0);
+			var textmesh = new THREE.Mesh( textgeometry, 
+				textmaterial );
+
+		textmesh.position.set (centerOffset,hover,0);
 		textmesh.scale.set(.1,.1,.1);
 	
 		arWorldRoot.add(textmesh)

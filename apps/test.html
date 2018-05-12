@@ -51,7 +51,7 @@
 		
 		// // to read from an image
 		  sourceType : 'image',
-		  sourceUrl : THREEx.ArToolkitContext.baseURL + 'data/img.jpg',
+		  sourceUrl : THREEx.ArToolkitContext.baseURL + 'data/img1.jpg',
 
 		// to read from a video
 		// sourceType : 'video',
@@ -171,7 +171,7 @@
 	var loader = new THREE.FontLoader();
 	 loader.load( "../source/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
 
-		var Textgeometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
+		var textgeometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
 				font: font,
 				size: 80,
 				height: 5,
@@ -181,8 +181,15 @@
 				bevelSize: 8,
 				bevelSegments: 5
 		} );
-		
-		var textmesh = new THREE.Mesh( Textgeometry, Textmaterial );
+
+		var textmaterial	= new THREE.MeshNormalMaterial({
+			transparent : false,
+			opacity: 1,
+			side: THREE.FrontSide
+		});
+
+		var textmesh = new THREE.Mesh( textgeometry, textmaterial );
+
 		textmesh.position.set (0,1,0);
 		textmesh.scale.set(1,1,1);
 	

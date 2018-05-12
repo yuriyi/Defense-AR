@@ -105,15 +105,15 @@
 	////////////////////////////////////////////////////////////////////////////////
 	//          Create a ArMarkerControls
 	////////////////////////////////////////////////////////////////////////////////
-	
-	// init controls for camera
-	var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
+
+	var markerRoot = new THREE.Group
+	scene.add(markerRoot)
+	var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
 		type : 'pattern',
-		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/S1.patt',
-		 patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.hiro',
-		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.kanji',
-		// as we control the camera, set changeMatrixMode: 'cameraTransformMatrix'
-		changeMatrixMode: 'cameraTransformMatrix'
+		patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.hiro'
+		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.kanji'
+		//patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.S1'
+		//,changeMatrixMode: 'cameraTransformMatrix'
 	})
 
 	var smoothedRoot = new THREE.Group()
@@ -128,7 +128,7 @@
 	})
 
 	// as we do changeMatrixMode: 'cameraTransformMatrix', start with invisible scene
-	scene.visible = false
+	//scene.visible = false
 
     //////////////////////////////////////////////////////////////////////////////////
     //			add an object in the scene

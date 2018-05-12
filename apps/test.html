@@ -199,7 +199,7 @@
 			var textmesh2 = new THREE.Mesh( textgeometry2, 
 				textmaterial );
 
-		textmesh1.position.set (0,.9,0);
+		textmesh1.position.set (0,1.5,0);
 		textmesh1.scale.set(.1,.1,.1);
 
 		textmesh2.position.set (0,.3,0);
@@ -213,12 +213,12 @@
 			textmesh1.scale.x += Math.sin(scaleFrame)
 			textmesh1.scale.y += Math.sin(scaleFrame)
 			textmesh1.scale.z += Math.sin(scaleFrame)
-			textmesh1.position.y += Math.sin(scaleFrame);
+			textmesh1.position.y += Math.sin(scaleFrame*5);
 
 			textmesh2.scale.x += Math.sin(scaleFrame)
 			textmesh2.scale.y += Math.sin(scaleFrame)
 			textmesh2.scale.z += Math.sin(scaleFrame)
-			textmesh2.position.y += Math.sin(scaleFrame);
+			textmesh2.position.y += Math.sin(scaleFrame*5);
 		});
 	} );
 

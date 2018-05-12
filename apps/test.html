@@ -178,8 +178,7 @@
 				curveSegments: 12
 			} );
 
-			textgeometry.computeBoundingBox();
-			var centerOffset = 0.5 * ( textgeometry.boundingBox.max.x - textgeometry.boundingBox.min.x );
+			THREE.GeometryUtils.center( textgeometry )
 
 			var textmaterial	= new THREE.MeshNormalMaterial({
 				transparent : false,
@@ -190,13 +189,13 @@
 			var textmesh = new THREE.Mesh( textgeometry, 
 				textmaterial );
 
-		textmesh.position.set (centerOffset,.2,0);
+		textmesh.position.set (0,.2,0);
 		textmesh.scale.set(.1,.1,.1);
 	
 		arWorldRoot.add(textmesh)
 	
 		onRenderFcts.push(function(){
-			textmesh.rotation.y += .05
+			textmesh.rotation.y += .025
 		// textmesh.position.y += delta * .5;
 		});
 	} );

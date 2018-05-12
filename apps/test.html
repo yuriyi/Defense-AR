@@ -4,7 +4,7 @@
 <script src="../source/three.js/examples/vendor/three.js/build/three.min.js"></script>
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/MTLLoader.js"></script>
 <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/OBJLoader.js"></script>
-<!-- <script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/FontLoader.js"></script> -->
+<script src="../source/three.js/examples/vendor/three.js/examples/js/loaders/FontLoader.js"></script>
 <!-- ar.js -->
 <script src="../source/three.js/build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../source/three.js/'</script>
@@ -99,7 +99,7 @@
 		arToolkitContext.update( arToolkitSource.domElement )
 		
 		// update scene.visible if the marker is seen
-		scene.visible = camera.visible
+		//scene.visible = camera.visible
 	})
 		
 	////////////////////////////////////////////////////////////////////////////////
@@ -116,6 +116,7 @@
 		//,changeMatrixMode: 'cameraTransformMatrix'
 	})
 
+	// build a smoothedControls
 	var smoothedRoot = new THREE.Group()
 	scene.add(smoothedRoot)
 	var smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
@@ -153,7 +154,7 @@
 	var material	= new THREE.MeshNormalMaterial({
 		transparent : true,
 		opacity: 0.5,
-		side: THREE.DoubleSide
+		side: THREE.FrontSide
 	}); 
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= geometry.parameters.height/3
@@ -169,37 +170,37 @@
 		mesh.rotation.x += 0.1
 	})
 
-	// var loader = new THREE.FontLoader();
-	// loader.load( "../source/three.js/examples/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
+	 var loader = new THREE.FontLoader();
+	 loader.load( "../source/three.js/examples/vendor/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
 
-	// 	var geometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
-	// 		font: font,
-	// 		size: 80,
-	// 		height: 5,
-	// 		curveSegments: 12,
-	// 		bevelEnabled: true,
-	// 		bevelThickness: 10,
-	// 		bevelSize: 8,
-	// 		bevelSegments: 5
-	// 	} );
-	// } );
+	var geometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
+			font: font,
+			size: 80,
+			height: 5,
+			curveSegments: 12,
+			bevelEnabled: true,
+			bevelThickness: 10,
+			bevelSize: 8,
+			bevelSegments: 5
+		} );
+	} );
 
-	// var material	= new THREE.MeshNormalMaterial({
-	// 	transparent : false,
-	// 	opacity: 1,
-	// 	side: THREE.FrontSide
-	// });
+	var material	= new THREE.MeshNormalMaterial({
+		transparent : false,
+		opacity: 1,
+		side: THREE.FrontSide
+	});
 
-	// var mesh = new THREE.Mesh( geometry, material );
-	// mesh.position.set (0,1,0);
-	// // mesh.scale.set(1,1,1);
+	var mesh = new THREE.Mesh( geometry, material );
+	mesh.position.set (0,1,0);
+	mesh.scale.set(1,1,1);
 	
-	// scene.add(mesh)
+	arWorldRoot.add(mesh)
 	
-	// onRenderFcts.push(function(delta){
-	// 	mesh.rotation.y += Math.PI*delta * .5
-	// 	// mesh.position.y += delta * .5;
-	// });
+	onRenderFcts.push(function(){
+		mesh.rotation.y += .05
+		// mesh.position.y += delta * .5;
+	});
 
 	
 	//////////////////////////////////////////////////////////////////////////////////

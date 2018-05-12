@@ -173,7 +173,7 @@
 
 		var textgeometry = new THREE.TextGeometry( 'IF YOU SEE THIS, I AM HAPPY', {
 				font: font,
-				size: 80,
+				size: 10,
 				height: 5,
 				curveSegments: 12,
 				bevelEnabled: true,
@@ -191,7 +191,7 @@
 		var textmesh = new THREE.Mesh( textgeometry, textmaterial );
 
 		textmesh.position.set (0,1,0);
-		textmesh.scale.set(1,1,1);
+		//textmesh.scale.set(1,1,1);
 	
 		arWorldRoot.add(textmesh)
 	

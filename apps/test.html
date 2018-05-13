@@ -67,10 +67,10 @@
 		onResize()
 	})
 	function onResize(){
-		arToolkitSource.onResize()	
-		arToolkitSource.copySizeTo(renderer.domElement)	
+		arToolkitSource.onResizeElement()	
+		arToolkitSource.copyElementSizeTo(renderer.domElement)	
 		if( arToolkitContext.arController !== null ){
-			arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)	
+			arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)	
 		}	
 	}
 	////////////////////////////////////////////////////////////////////////////////
@@ -185,8 +185,8 @@
 				curveSegments: 12
 			} );
 
-			THREE.GeometryUtils.center( textgeometry1 )
-			THREE.GeometryUtils.center( textgeometry2 )
+			textgeometry1.center()
+			textgeometry2.center()
 
 			var textmaterial	= new THREE.MeshNormalMaterial({
 				transparent : false,
@@ -210,15 +210,17 @@
 
 		var scaleFrame = 0;
 		var posFrame = .0005;
-		onRenderFcts.push(function(delta){
-			textmesh1.scale.x += scaleFrame * Math.cos(delta)
-			textmesh1.scale.y += scaleFrame * Math.cos(delta)
-			textmesh1.scale.z += scaleFrame * Math.cos(delta)
+		var delta = 0;
+		onRenderFcts.push(function(){
+			delta += 1;
+			textmesh1.scale.x += scaleFrame * Math.cos(delta);
+			textmesh1.scale.y += scaleFrame * Math.cos(delta);
+			textmesh1.scale.z += scaleFrame * Math.cos(delta);
 			textmesh1.position.y += posFrame * Math.cos(Math.PI*delta*50);
 
-			textmesh2.scale.x += scaleFrame * Math.cos(delta)
-			textmesh2.scale.y += scaleFrame * Math.cos(delta)
-			textmesh2.scale.z += scaleFrame * Math.cos(delta)
+			textmesh2.scale.x += scaleFrame * Math.cos(delta);
+			textmesh2.scale.y += scaleFrame * Math.cos(delta);
+			textmesh2.scale.z += scaleFrame * Math.cos(delta);
 			textmesh2.position.y += posFrame * Math.cos(Math.PI*delta*50);
 		});
 	} );

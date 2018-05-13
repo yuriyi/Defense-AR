@@ -47,11 +47,11 @@
 
 	var arToolkitSource = new THREEx.ArToolkitSource({
 		// to read from the webcam 
-		// sourceType : 'webcam',
+		sourceType : 'webcam',
 		
 		// // to read from an image
-		  sourceType : 'image',
-		  sourceUrl : THREEx.ArToolkitContext.baseURL + 'data/img.jpg',
+		  // sourceType : 'image',
+		  // sourceUrl : THREEx.ArToolkitContext.baseURL + 'data/img.jpg',
 
 		// to read from a video
 		// sourceType : 'video',
@@ -205,7 +205,7 @@
 
 		textmesh1.position.set (0,text1ypos,0);
 		textmesh2.position.set (0,text2ypos,0);
-		
+
 		textmesh1.scale.set(textscale,textscale,textscale);
 		textmesh2.scale.set(textscale,textscale,textscale);
 		
@@ -220,14 +220,8 @@
 
 			tempypos += posFrame;
 
-			textmesh1.scale.x = textscale + Math.sin(2 * Math.PI * tempypos) / 3;
-			textmesh1.scale.y = textscale + Math.sin(2 * Math.PI * tempypos) / 3;
-			textmesh1.scale.z = textscale + Math.sin(2 * Math.PI * tempypos) / 3;
 			textmesh1.position.y = text1ypos + Math.sin(2 * Math.PI * tempypos) / 3;
 
-			textmesh2.scale.x = textscale + Math.sin(2 * Math.PI * tempypos) / 3;
-			textmesh2.scale.y = textscale + Math.sin(2 * Math.PI * tempypos) / 3;
-			textmesh2.scale.z = textscale + Math.sin(2 * Math.PI * tempypos) / 3;
 			textmesh2.position.y = text2ypos + Math.sin(2 * Math.PI * tempypos) / 3;
 		});
 	} );

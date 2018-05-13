@@ -211,7 +211,6 @@
 
 		var scaleFrame = 0;
 		var posFrame = .0005;
-		
 		var delta = 0;
 
 		onRenderFcts.push(function(){
@@ -219,13 +218,13 @@
 			textmesh1.scale.x += scaleFrame * Math.cos(delta);
 			textmesh1.scale.y += scaleFrame * Math.cos(delta);
 			textmesh1.scale.z += scaleFrame * Math.cos(delta);
-			textmesh1.position.y = text1ypos + delta
+			textmesh1.position.y = text1ypos + delta;
 			// Math.cos(10*Math.PI*delta);
 
 			textmesh2.scale.x += scaleFrame * Math.cos(delta);
 			textmesh2.scale.y += scaleFrame * Math.cos(delta);
 			textmesh2.scale.z += scaleFrame * Math.cos(delta);
-			textmesh2.position.y = text2ypos + delta
+			textmesh2.position.y = text2ypos + delta;
 			// Math.cos(10*Math.PI*delta);
 		});
 	} );

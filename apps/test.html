@@ -208,17 +208,18 @@
 		arWorldRoot.add(textmesh1)
 		arWorldRoot.add(textmesh2)
 
-		var scaleFrame = .005;
+		var scaleFrame = 0;
+		var posFrame = .005;
 		onRenderFcts.push(function(delta){
-			textmesh1.scale.x += scaleFrame * Math.sin(delta)
-			textmesh1.scale.y += scaleFrame * Math.sin(delta)
-			textmesh1.scale.z += scaleFrame * Math.sin(delta)
-			textmesh1.position.y += scaleFrame * Math.sin(delta*5);
+			textmesh1.scale.x += scaleFrame * Math.cos(delta)
+			textmesh1.scale.y += scaleFrame * Math.cos(delta)
+			textmesh1.scale.z += scaleFrame * Math.cos(delta)
+			textmesh1.position.y += posFrame * Math.cos(delta*5);
 
-			textmesh2.scale.x += scaleFrame * Math.sin(delta)
-			textmesh2.scale.y += scaleFrame * Math.sin(delta)
-			textmesh2.scale.z += scaleFrame * Math.sin(delta)
-			textmesh2.position.y += scaleFrame * Math.sin(delta*5);
+			textmesh2.scale.x += scaleFrame * Math.cos(delta)
+			textmesh2.scale.y += scaleFrame * Math.cos(delta)
+			textmesh2.scale.z += scaleFrame * Math.cos(delta)
+			textmesh2.position.y += posFrame * Math.cos(delta*5);
 		});
 	} );
 

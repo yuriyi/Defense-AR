@@ -208,17 +208,17 @@
 		arWorldRoot.add(textmesh1)
 		arWorldRoot.add(textmesh2)
 
-		var scaleFrame = .0001;
-		onRenderFcts.push(function(){
-			textmesh1.scale.x += Math.sin(scaleFrame)
-			textmesh1.scale.y += Math.sin(scaleFrame)
-			textmesh1.scale.z += Math.sin(scaleFrame)
-			textmesh1.position.y += Math.sin(scaleFrame*5);
+		var scaleFrame = .5;
+		onRenderFcts.push(function(delta){
+			textmesh1.scale.x += scaleFrame * Math.sin(delta)
+			textmesh1.scale.y += scaleFrame * Math.sin(delta)
+			textmesh1.scale.z += scaleFrame * Math.sin(delta)
+			textmesh1.position.y += scaleFrame * Math.sin(delta*5);
 
-			textmesh2.scale.x += Math.sin(scaleFrame)
-			textmesh2.scale.y += Math.sin(scaleFrame)
-			textmesh2.scale.z += Math.sin(scaleFrame)
-			textmesh2.position.y += Math.sin(scaleFrame*5);
+			textmesh2.scale.x += scaleFrame * Math.sin(delta)
+			textmesh2.scale.y += scaleFrame * Math.sin(delta)
+			textmesh2.scale.z += scaleFrame * Math.sin(delta)
+			textmesh2.position.y += scaleFrame * Math.sin(delta*5);
 		});
 	} );
 

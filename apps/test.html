@@ -223,8 +223,8 @@
 			textmesh1.position.y = text1ypos + Math.sin(2 * Math.PI * tempypos) / 3;
 			textmesh2.position.y = text2ypos + Math.sin(2 * Math.PI * tempypos) / 3;
 
-			textmesh1.rotation.y += rotrate;
-			textmesh2.rotation.y += rotrate;
+			textmesh1.rotation.y += Math.PI * rotrate;
+			textmesh2.rotation.y += Math.PI * rotrate;
 		});
 	} );
 

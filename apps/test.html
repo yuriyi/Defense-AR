@@ -212,7 +212,7 @@
 		arWorldRoot.add(textmesh1)
 		arWorldRoot.add(textmesh2)
 
-		var scaleFrame = 0;
+		var posFrame = .001;
 		var rotrate = .1;
 		var tempypos = textmesh1.position.y;
 
@@ -222,15 +222,11 @@
 
 			textmesh1.position.y = text1ypos + Math.sin(2 * Math.PI * tempypos) / 3;
 			textmesh2.position.y = text2ypos + Math.sin(2 * Math.PI * tempypos) / 3;
-
-		});
-		
-		onRenderFcts.push(function(){
-
 			textmesh1.rotation.y += Math.PI * rotrate;
 			textmesh2.rotation.y += Math.PI * rotrate;
 
 		});
+
 	} );
 
 

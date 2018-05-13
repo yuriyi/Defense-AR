@@ -47,11 +47,11 @@
 
 	var arToolkitSource = new THREEx.ArToolkitSource({
 		// to read from the webcam 
-		sourceType : 'webcam',
+		// sourceType : 'webcam',
 		
 		// // to read from an image
-		  // sourceType : 'image',
-		  // sourceUrl : THREEx.ArToolkitContext.baseURL + 'data/img1.jpg',
+		  sourceType : 'image',
+		  sourceUrl : THREEx.ArToolkitContext.baseURL + 'data/img.jpg',
 
 		// to read from a video
 		// sourceType : 'video',
@@ -208,7 +208,7 @@
 		arWorldRoot.add(textmesh1)
 		arWorldRoot.add(textmesh2)
 
-		var scaleFrame = .05;
+		var scaleFrame = .005;
 		onRenderFcts.push(function(delta){
 			textmesh1.scale.x += scaleFrame * Math.sin(delta)
 			textmesh1.scale.y += scaleFrame * Math.sin(delta)

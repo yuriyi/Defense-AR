@@ -212,16 +212,16 @@
 		var posFrame = .0005;
 		
 		onRenderFcts.push(function(delta){
-			delta += 1;
+
 			textmesh1.scale.x += scaleFrame * Math.cos(delta);
 			textmesh1.scale.y += scaleFrame * Math.cos(delta);
 			textmesh1.scale.z += scaleFrame * Math.cos(delta);
-			textmesh1.position.y = Math.cos(Math.PI*delta);
+			textmesh1.position.y = Math.cos(10*Math.PI*delta);
 
 			textmesh2.scale.x += scaleFrame * Math.cos(delta);
 			textmesh2.scale.y += scaleFrame * Math.cos(delta);
 			textmesh2.scale.z += scaleFrame * Math.cos(delta);
-			textmesh2.position.y = Math.cos(Math.PI*delta);
+			textmesh2.position.y = Math.cos(10*Math.PI*delta);
 		});
 	} );
 

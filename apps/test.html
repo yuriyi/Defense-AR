@@ -173,14 +173,14 @@
 
 			var textgeometry1 = new THREE.TextGeometry( 'HELLO', {
 				font: font,
-				size: 2,
+				size: 1,
 				height: 5,
 				curveSegments: 12
 			} );
 
 			var textgeometry2 = new THREE.TextGeometry( 'WORLD!', {
 				font: font,
-				size: 2,
+				size: 1,
 				height: 5,
 				curveSegments: 12
 			} );
@@ -214,12 +214,12 @@
 			textmesh1.scale.x += scaleFrame * Math.cos(delta)
 			textmesh1.scale.y += scaleFrame * Math.cos(delta)
 			textmesh1.scale.z += scaleFrame * Math.cos(delta)
-			textmesh1.position.y += posFrame * Math.cos(delta*5);
+			textmesh1.position.y += posFrame * Math.cos(Math.PI*delta*5);
 
 			textmesh2.scale.x += scaleFrame * Math.cos(delta)
 			textmesh2.scale.y += scaleFrame * Math.cos(delta)
 			textmesh2.scale.z += scaleFrame * Math.cos(delta)
-			textmesh2.position.y += posFrame * Math.cos(delta*5);
+			textmesh2.position.y += posFrame * Math.cos(Math.PI*delta*5);
 		});
 	} );
 

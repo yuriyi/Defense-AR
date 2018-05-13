@@ -217,12 +217,14 @@
 			textmesh1.scale.x += scaleFrame * Math.cos(delta);
 			textmesh1.scale.y += scaleFrame * Math.cos(delta);
 			textmesh1.scale.z += scaleFrame * Math.cos(delta);
-			textmesh1.position.y = text1ypos + Math.cos(10*Math.PI*delta);
+			textmesh1.position.y = text1ypos + delta
+			// Math.cos(10*Math.PI*delta);
 
 			textmesh2.scale.x += scaleFrame * Math.cos(delta);
 			textmesh2.scale.y += scaleFrame * Math.cos(delta);
 			textmesh2.scale.z += scaleFrame * Math.cos(delta);
-			textmesh2.position.y = text2ypos + Math.cos(10*Math.PI*delta);
+			textmesh2.position.y = text2ypos + delta
+			// Math.cos(10*Math.PI*delta);
 		});
 	} );
 

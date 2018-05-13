@@ -173,14 +173,14 @@
 
 			var textgeometry1 = new THREE.TextGeometry( 'HELLO', {
 				font: font,
-				size: 10,
+				size: 2,
 				height: 5,
 				curveSegments: 12
 			} );
 
 			var textgeometry2 = new THREE.TextGeometry( 'WORLD!', {
 				font: font,
-				size: 10,
+				size: 2,
 				height: 5,
 				curveSegments: 12
 			} );
@@ -199,17 +199,17 @@
 			var textmesh2 = new THREE.Mesh( textgeometry2, 
 				textmaterial );
 
-		textmesh1.position.set (0,1.5,0);
-		textmesh1.scale.set(.1,.1,.1);
+		textmesh1.position.set (0,1,0);
+		// textmesh1.scale.set(.1,.1,.1);
 
 		textmesh2.position.set (0,.3,0);
-		textmesh2.scale.set(.1,.1,.1);
+		// textmesh2.scale.set(.1,.1,.1);
 		
 		arWorldRoot.add(textmesh1)
 		arWorldRoot.add(textmesh2)
 
 		var scaleFrame = 0;
-		var posFrame = .005;
+		var posFrame = .0005;
 		onRenderFcts.push(function(delta){
 			textmesh1.scale.x += scaleFrame * Math.cos(delta)
 			textmesh1.scale.y += scaleFrame * Math.cos(delta)

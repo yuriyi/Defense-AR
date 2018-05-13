@@ -200,10 +200,10 @@
 				textmaterial );
 
 		textmesh1.position.set (0,1,0);
-		// textmesh1.scale.set(.1,.1,.1);
+		textmesh1.scale.set(.5,.5,.5);
 
 		textmesh2.position.set (0,.3,0);
-		// textmesh2.scale.set(.1,.1,.1);
+		textmesh2.scale.set(.5,.5,.5);
 		
 		arWorldRoot.add(textmesh1)
 		arWorldRoot.add(textmesh2)
@@ -214,12 +214,12 @@
 			textmesh1.scale.x += scaleFrame * Math.cos(delta)
 			textmesh1.scale.y += scaleFrame * Math.cos(delta)
 			textmesh1.scale.z += scaleFrame * Math.cos(delta)
-			textmesh1.position.y += posFrame * Math.cos(Math.PI*delta*5);
+			textmesh1.position.y += posFrame * Math.cos(Math.PI*delta*50);
 
 			textmesh2.scale.x += scaleFrame * Math.cos(delta)
 			textmesh2.scale.y += scaleFrame * Math.cos(delta)
 			textmesh2.scale.z += scaleFrame * Math.cos(delta)
-			textmesh2.position.y += posFrame * Math.cos(Math.PI*delta*5);
+			textmesh2.position.y += posFrame * Math.cos(Math.PI*delta*50);
 		});
 	} );
 

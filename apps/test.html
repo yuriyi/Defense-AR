@@ -198,11 +198,12 @@
 				textmaterial );
 			var textmesh2 = new THREE.Mesh( textgeometry2, 
 				textmaterial );
-
-		textmesh1.position.set (0,1,0);
+		var text1ypos = 1;
+		textmesh1.position.set (0,text1ypos,0);
 		textmesh1.scale.set(.5,.5,.5);
 
-		textmesh2.position.set (0,.3,0);
+		var text2ypos = .3;
+		textmesh2.position.set (0,text2ypos,0);
 		textmesh2.scale.set(.5,.5,.5);
 		
 		arWorldRoot.add(textmesh1)
@@ -216,12 +217,12 @@
 			textmesh1.scale.x += scaleFrame * Math.cos(delta);
 			textmesh1.scale.y += scaleFrame * Math.cos(delta);
 			textmesh1.scale.z += scaleFrame * Math.cos(delta);
-			textmesh1.position.y = Math.cos(10*Math.PI*delta);
+			textmesh1.position.y = text1ypos + Math.cos(10*Math.PI*delta);
 
 			textmesh2.scale.x += scaleFrame * Math.cos(delta);
 			textmesh2.scale.y += scaleFrame * Math.cos(delta);
 			textmesh2.scale.z += scaleFrame * Math.cos(delta);
-			textmesh2.position.y = Math.cos(10*Math.PI*delta);
+			textmesh2.position.y = text2ypos + Math.cos(10*Math.PI*delta);
 		});
 	} );
 

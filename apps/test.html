@@ -10,22 +10,22 @@
 	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
 		This is an AR test example.
 	</div>
-    <button type="button" onclick="change()" value="S1" id="mode_select">Wave-mode selected: S1</button>
+    <button type="button" onclick="change()" value=1 id="mode_select">Wave-mode selected: S1</button>
     
 <script>
     // button controls
-    //style='positioning: absolute; bottom: 10px; text-align: center; width=100%' 
+    //style='positioning: absolute; bottom: 10px; text-align: center; width=100%'
     var wave_mode_select = 1;
     
     function change() {
         var btn = document.getElementById("mode_select");
-        if (btn.value == "S1") {
+        if (btn.value == 1) {
             wave_mode_select = 2;
-            btn.value = "S2";
+            btn.value = 2;
             btn.innerHTML = "Wave-mode selected: S2";
         } else {
-            wave_mode_select = 1;
-            btn.value = "S1";
+            wave_mode_select = 2;
+            btn.value = 1;
             btn.innerHTML = "Wave-mode selected: S1";
         }
     }

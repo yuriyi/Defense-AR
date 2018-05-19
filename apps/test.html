@@ -10,7 +10,7 @@
 	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
 		This is an AR test example.
 	</div>
-    <div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 2;'>
+    <div style='position: absolute; z-index: 2; margin:auto; display:block;'>
         <button type="button" onclick="change()" value=1 id="mode_select">Wave-mode selected: S1</button>
     </div>
     
@@ -25,7 +25,7 @@
             btn.value = 2;
             btn.innerHTML = "Wave-mode selected: S2";
         } else {
-            wave_mode_select = 2;
+            wave_mode_select = 1;
             btn.value = 1;
             btn.innerHTML = "Wave-mode selected: S1";
         }

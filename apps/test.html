@@ -11,7 +11,7 @@
 		This is an AR test example.
 	</div>
     <div align='center', style='bottom: 30px'>
-        <input onclick="change()" type="button" value="S1" id="mode_select"></input>
+        <button type="button" onclick="change()" value="S1" id="mode_select"></input>
     </div>
     
 <script>
@@ -152,14 +152,13 @@
     var wave_mode_select = 1;
     
     function change() {
-        var change = document.getElementById("mode_select");
-        if (change.value == "S1") {
+        var buttonvalue = document.getElementById("mode_select");
+        if (buttonvalue.value == "S1") {
             wave_mode_select = 2;
-            change.value = "S2"
+            buttonvalue.value = "S2"
         } else {
-            change.value = "S2";
             wave_mode_select = 1;
-            change.value = "S1";
+            buttonvalue.value = "S1";
         }
     }
     

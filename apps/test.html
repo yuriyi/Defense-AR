@@ -11,8 +11,26 @@
 		This is an AR test example.
 	</div>
     <div style='positioning: absolute; bottom: 10px; text-align: center;'>
-        <button type="button" onclick="change()" value="S1" id="mode_select"></button>
+        <button type="button" onclick="change()" value="S1" id="mode_select">S1</button>
     </div>
+    
+<script>
+    // button controls
+    var wave_mode_select = 1;
+    
+    function change() {
+        var btn = document.getElementById("mode_select");
+        if (buttonvalue.value == "S1") {
+            wave_mode_select = 2;
+            buttonvalue.value = "S2";
+            btn.innerHTML = "S2";
+        } else {
+            wave_mode_select = 1;
+            buttonvalue.value = "S1";
+            btn.innerHTML = "S1";
+        }
+    }
+</script>
     
 <script>
 	//////////////////////////////////////////////////////////////////////////////////
@@ -147,20 +165,6 @@
 	//////////////////////////////////////////////////////////////////////////////////
 	//        create text
 	//////////////////////////////////////////////////////////////////////////////////
-    
-    // button controls
-    var wave_mode_select = 1;
-    
-    function change() {
-        var buttonvalue = document.getElementById("mode_select");
-        if (buttonvalue.value == "S1") {
-            wave_mode_select = 2;
-            buttonvalue.value = "S2"
-        } else {
-            wave_mode_select = 1;
-            buttonvalue.value = "S1";
-        }
-    }
     
 	var arWorldRoot = smoothedRoot
 

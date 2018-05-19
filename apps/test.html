@@ -18,13 +18,13 @@
     
     function change() {
         var btn = document.getElementById("mode_select");
-        if (buttonvalue.value == "S1") {
+        if (btn.value == "S1") {
             wave_mode_select = 2;
-            buttonvalue.value = "S2";
+            btn.value = "S2";
             btn.innerHTML = "S2";
         } else {
             wave_mode_select = 1;
-            buttonvalue.value = "S1";
+            btn.value = "S1";
             btn.innerHTML = "S1";
         }
     }

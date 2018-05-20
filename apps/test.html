@@ -35,7 +35,7 @@
         	wave_mode_1 = true;
             wave_mode_2 = true;
             btn.value = 0;
-            btn.innerHTML = "Press me!";		
+            btn.innerHTML = "Press me!";	
         }
     }
 </script>
@@ -228,39 +228,48 @@
 				textmaterial );
 			var textmesh2 = new THREE.Mesh( textgeometry2, 
 				textmaterial );
+
+
 					
-		var text1ypos = .9;
-		var text2ypos = .3;
-		var textscale = .4;
+			var text1ypos = .9;
+			var text2ypos = .3;
+			var textscale = .4;
 
-		textmesh1.position.set (0,text1ypos,0);
-		textmesh2.position.set (0,text2ypos,0);
+			textmesh1.position.set (0,text1ypos,0);
+			textmesh2.position.set (0,text2ypos,0);
 
-		textmesh1.scale.set(textscale,textscale,textscale);
-		textmesh2.scale.set(textscale,textscale,textscale);
+			textmesh1.scale.set(textscale,textscale,textscale);
+			textmesh2.scale.set(textscale,textscale,textscale);
 		
-		arWorldRoot.add(textmesh1)
-		arWorldRoot.add(textmesh2)
+			//arWorldRoot.add(textmesh1)
+			//arWorldRoot.add(textmesh2)
+			
+			var group = new THREE.Group();
+			group.add( textmesh1 );
+			group.add( textmesh2 );
+			arWorldRoot.add(group);
 
-		var posFrame = .0005;
-		var rotrate = .001;
-		var tempypos = textmesh1.position.y;
+			var posFrame = .0005;
+			var rotrate = .001;
+			var tempypos = textmesh1.position.y;
 
-		onRenderFcts.push(function(){
+			onRenderFcts.push(function(){
 
-			tempypos += posFrame;
+				tempypos += posFrame;
 
-			textmesh1.position.y = text1ypos + Math.sin(2 * Math.PI * tempypos) / 3;
-			textmesh2.position.y = text2ypos + Math.sin(2 * Math.PI * tempypos) / 3;
-			textmesh1.rotation.y += Math.PI * rotrate;
-			textmesh2.rotation.y += Math.PI * rotrate;
+				//textmesh1.position.y = text1ypos + Math.sin(2 * Math.PI * tempypos) / 3;
+				//textmesh2.position.y = text2ypos + Math.sin(2 * Math.PI * tempypos) / 3;
+				//textmesh1.rotation.y += Math.PI * rotrate;
+				//textmesh2.rotation.y += Math.PI * rotrate;
 
-			textmesh1.visible = wave_mode_1;
-			textmesh2.visible = wave_mode_2;
+				group.rotation.y += Math.PI * rotrate;
 
-		});
+				textmesh1.visible = wave_mode_1;
+				textmesh2.visible = wave_mode_2;
 
-	} );
+			});
+
+		} );
 
 
 

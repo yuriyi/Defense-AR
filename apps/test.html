@@ -221,11 +221,9 @@
 
 			var textmesh1 = new THREE.Mesh( textgeometry1, 
 				textmaterial );
-			textmesh1.visible = wave_mode_1;
 			var textmesh2 = new THREE.Mesh( textgeometry2, 
 				textmaterial );
-			textmesh2.visible = wave_mode_2;
-		
+					
 		var text1ypos = .9;
 		var text2ypos = .3;
 		var textscale = .4;
@@ -251,6 +249,9 @@
 			textmesh2.position.y = text2ypos + Math.sin(2 * Math.PI * tempypos) / 3;
 			textmesh1.rotation.y += Math.PI * rotrate;
 			textmesh2.rotation.y += Math.PI * rotrate;
+
+			textmesh1.visible = wave_mode_1;
+			textmesh2.visible = wave_mode_2;
 
 		});
 

@@ -16,16 +16,19 @@
     
 <script>
     // button controls
-    var wave_mode_select = 1;
+    var wave_mode_1 = true;
+    var wave_mode_2 = false;
     
     function change() {
         var btn = document.getElementById("mode_select");
         if (btn.value == 1) {
-            wave_mode_select = 2;
+            wave_mode_1 = false;
+            wave_mode_2 = true;
             btn.value = 2;
             btn.innerHTML = "Wave-mode selected: S2";
         } else {
-            wave_mode_select = 1;
+            wave_mode_1 = true;
+            wave_mode_2 = false;
             btn.value = 1;
             btn.innerHTML = "Wave-mode selected: S1";
         }
@@ -218,8 +221,10 @@
 
 			var textmesh1 = new THREE.Mesh( textgeometry1, 
 				textmaterial );
+			textmesh1.visible = wave_mode_1;
 			var textmesh2 = new THREE.Mesh( textgeometry2, 
 				textmaterial );
+			textmesh2.visible = wave_mode_2;
 		
 		var text1ypos = .9;
 		var text2ypos = .3;

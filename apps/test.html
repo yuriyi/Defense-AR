@@ -11,26 +11,31 @@
 		This is an AR test example.
 	</div>
     <div style='position: absolute; z-index: 2; width:100%; text-align: center; top: 40px;'>
-        <button type="button" onclick="change()" value=1 id="mode_select">Wave-mode selected: S1</button>
+        <button type="button" onclick="change()" value=0 id="mode_select">Press me!</button>
     </div>
     
 <script>
     // button controls
     var wave_mode_1 = true;
-    var wave_mode_2 = false;
+    var wave_mode_2 = true;
     
     function change() {
         var btn = document.getElementById("mode_select");
-        if (btn.value == 1) {
+        if (btn.value == 0) {
             wave_mode_1 = false;
             wave_mode_2 = true;
-            btn.value = 2;
-            btn.innerHTML = "Wave-mode selected: S2";
-        } else {
+            btn.value = 1;
+            btn.innerHTML = "Press me again!";
+        } else if (btn.value == 1) {
             wave_mode_1 = true;
             wave_mode_2 = false;
-            btn.value = 1;
-            btn.innerHTML = "Wave-mode selected: S1";
+            btn.value = 2;
+            btn.innerHTML = "One more time!";
+        } else if (btn.value == 2) {
+        	wave_mode_1 = true;
+            wave_mode_2 = true;
+            btn.value = 0;
+            btn.innerHTML = "Press me!";		
         }
     }
 </script>

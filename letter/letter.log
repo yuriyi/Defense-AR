@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650 64-bit) (preloaded format=pdflatex 2018.4.3)  28 MAY 2018 19:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650 64-bit) (preloaded format=pdflatex 2018.4.3)  28 MAY 2018 19:31
 entering extended mode
 **./letter.tex
 (letter.tex
@@ -238,28 +238,28 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 25.
-<../source/images/test.png, id=4, 513.92pt x 513.92pt>
-File: ../source/images/test.png Graphic file (type png)
-<use ../source/images/test.png>
-Package pdftex.def Info: ../source/images/test.png  used on input line 27.
+<../source/images/phd.png, id=4, 513.92pt x 513.92pt>
+File: ../source/images/phd.png Graphic file (type png)
+<use ../source/images/phd.png>
+Package pdftex.def Info: ../source/images/phd.png  used on input line 27.
 (pdftex.def)             Requested size: 455.24408pt x 455.25438pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 28.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 29.
  [1
 
 {C:/Users/yuriyi/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <../source/
-images/test.png>]
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 28.
+images/phd.png>]
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 29.
  (letter.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 28.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 28.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 29.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 29.
 Package rerunfilecheck Info: File `letter.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 28.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 29.
  ) 
 Here is how much of TeX's memory you used:
  4947 strings out of 493305
- 75313 string characters out of 3129368
- 151763 words of memory out of 3000000
+ 75308 string characters out of 3129368
+ 151770 words of memory out of 3000000
  8494 multiletter control sequences out of 15000+200000
  5636 words of font info for 21 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -267,7 +267,7 @@ Here is how much of TeX's memory you used:
 <C:/Users/yuriyi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmr17.pfb><C:/Users/yuriyi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmtt12.pfb>
-Output written on letter.pdf (1 page, 29121 bytes).
+Output written on letter.pdf (1 page, 29395 bytes).
 PDF statistics:
  23 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)

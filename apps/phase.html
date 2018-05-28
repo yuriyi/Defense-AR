@@ -172,21 +172,22 @@
 	var arWorldRoot = smoothedRoot
 
 		//			LIGHT
-	var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	var light3 = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	light1.position.set( 0, 1, 0 );
-	light2.position.set( 0, -1, 0 );
-	light3.position.set( 0, 0, 1 );
-	scene.add(light1);
-	scene.add(light2);
-	scene.add(light3);
+	var light = new THREE.SpotLight( 0xffffff, 0.75 );
+	light.position.set( 0, 10, 0 );
+	scene.add(light);
 
-	var materialS	= new THREE.MeshPhongMaterial({
-		side: THREE.FrontSide,
+	var materialS1	= new THREE.MeshPhongMaterial({
+		side: THREE.DoubleSide,
 		color: 0xff4fea,
 		specular: 0x750606,
-		shininess: 30
+		shininess: 20
+	});
+
+	var materialS2	= new THREE.MeshPhongMaterial({
+		side: THREE.DoubleSide,
+		color: 0x1da7ed,
+		specular: 0x750606,
+		shininess: 20
 	});
 
 
@@ -198,7 +199,7 @@
 	var loader = new THREE.BufferGeometryLoader();
 	loader.load('../source/data/surfaces/S1-p.json',
 		function ( geometry ) {
-			var object = new THREE.Mesh( geometry, materialS );
+			var object = new THREE.Mesh( geometry, materialS1 );
    		 	object.position.set (0,1,0);
    		 	object.scale.set (objectScale,objectScale,objectScale);
 			arWorldRoot.add( object );
@@ -212,7 +213,7 @@
 
 	loader.load('../source/data/surfaces/S2-p.json',
 		function ( geometry ) {
-			var object = new THREE.Mesh( geometry, materialS );
+			var object = new THREE.Mesh( geometry, materialS2 );
    		 	object.position.set (0,1,0);
    		 	object.scale.set (objectScale,objectScale,objectScale);
 			arWorldRoot.add( object );

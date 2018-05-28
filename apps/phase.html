@@ -207,6 +207,20 @@
 			});
 		},
 	);
+
+	loader.load('../source/data/surfaces/S2-p.json',
+		function ( geometry ) {
+			var object = new THREE.Mesh( geometry, materialS );
+   		 	object.position.set (0,1,0);
+   		 	object.scale.set (objectScale,objectScale,objectScale);
+			arWorldRoot.add( object );
+  	  		onRenderFcts.push(function(delta){
+				object.rotation.x += Math.PI*delta * .125
+				object.rotation.y += Math.PI*delta * .125;
+				object.visible = wave_mode_2;
+			});
+		},
+	);
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////

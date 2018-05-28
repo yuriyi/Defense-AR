@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650 64-bit) (preloaded format=pdflatex 2018.4.3)  28 MAY 2018 19:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650 64-bit) (preloaded format=pdflatex 2018.4.3)  28 MAY 2018 19:22
 entering extended mode
 **./markerTest.tex
 (markerTest.tex
@@ -940,26 +940,23 @@ kii"
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.15}).
 
-<test.png, id=4, 1226.5825pt x 1284.8pt>
-File: test.png Graphic file (type png)
-<use test.png>
-Package pdftex.def Info: test.png  used on input line 28.
-(pdftex.def)             Requested size: 345.0pt x 361.36871pt.
 [1
 
- <./test.png>] (markerTest.aux) ) 
+{C:/Users/yuriyi/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(markerTest.aux) ) 
 Here is how much of TeX's memory you used:
- 26467 strings out of 493305
- 698567 string characters out of 3129368
+ 26462 strings out of 493305
+ 698514 string characters out of 3129368
  843382 words of memory out of 3000000
- 29520 multiletter control sequences out of 15000+200000
+ 29516 multiletter control sequences out of 15000+200000
  4545 words of font info for 17 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,7n,119p,785b,657s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Output written on markerTest.pdf (1 page, 47693 bytes).
+ 70i,7n,119p,785b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/yuriyi/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmssbx10.pfb>
+Output written on markerTest.pdf (1 page, 8737 bytes).
 PDF statistics:
- 12 PDF objects out of 1000 (max. 8388607)
+ 13 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

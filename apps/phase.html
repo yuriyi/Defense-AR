@@ -180,22 +180,11 @@
 	scene.add(light1);
 	scene.add(light2);
 
-	var materialS1	= new THREE.MeshPhongMaterial({
-		transparent : true,
-		opacity: .7,
+	var materialS	= new THREE.MeshPhongMaterial({
 		side: THREE.FrontSide,
 		color: 0xff4fea,
 		specular: 0x750606,
 		shininess: 30
-	});
-
-	var materialS2	= new THREE.MeshNormalMaterial({
-		transparent : false,
-		opacity: 1,
-		side: THREE.FrontSide//,
-		// color: 0x48a6e8,
-		// specular: 0x1a3c1e,
-		// shininess: 0
 	});
 
 
@@ -208,7 +197,7 @@
   		objLoader.load("S1-p.obj", function (object) {
 			object.traverse( function ( child ) {
 				if ( child instanceof THREE.Mesh ) {
-					child.material = materialS1;
+					child.material = materialS;
 				}
 			});
    		 	object.position.set (0,1,0);
@@ -224,7 +213,7 @@
   		objLoader.load("S2-p.obj", function (object) {
 			object.traverse( function ( child ) {
 				if ( child instanceof THREE.Mesh ) {
-					child.material = materialS2;
+					child.material = materialS;
 				}
 			});
    		 	object.position.set (0,1,0);
@@ -236,6 +225,26 @@
 				object.visible = wave_mode_2;
 			});
   		});
+	///////////////////////////////////////////////////////////////
+	//////// LOAD GEOMETRY
+	///////////////////////////////////////////////////////////////
+	var loader = new THREE.BufferGeometryLoader();
+	loader.load('../source/data/surfaces/S1-p.json',
+		function ( geometry ) {
+			var object = new THREE.Mesh( geometry, materialS );
+		scene.add( object );
+	},
+
+	// onProgress callback
+	function ( xhr ) {
+		console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+	},
+
+	// onError callback
+	function ( err ) {
+		console.log( 'An error happened' );
+	}
+);
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////

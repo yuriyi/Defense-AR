@@ -172,7 +172,7 @@
 	var arWorldRoot = smoothedRoot
 
 		//			LIGHT
-	var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+/*	var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	var light3 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	light1.position.set( 0, 1, 0 );
@@ -180,7 +180,11 @@
 	light3.position.set( 0, 0, 1 );
 	scene.add(light1);
 	scene.add(light2);
-	scene.add(light3);
+	scene.add(light3);*/
+
+	var light = new THREE.SportLight( 0xffffff, 0.5 );
+	light.position.set( 0, 0, 1 );
+	scene.add(light);
 
 	var materialS	= new THREE.MeshPhongMaterial({
 		side: THREE.DoubleSide,

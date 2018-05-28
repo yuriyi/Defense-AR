@@ -177,8 +177,8 @@
 	var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	light1.position.set( 0, 1, 0 );
 	light2.position.set( 0, -1, 0 );
-	scene.add(light1);
-	scene.add(light2);
+	arWorldRoot.add(light1);
+	arWorldRoot.add(light2);
 
 	var materialS	= new THREE.MeshPhongMaterial({
 		side: THREE.FrontSide,
@@ -201,7 +201,7 @@
 			});
    		 	object.position.set (0,1,0);
    		 	object.scale.set (objectScale,objectScale,objectScale);
-   		 	scene.add(object);
+   		 	arWorldRoot.add(object);
   	  		onRenderFcts.push(function(delta){
 				object.rotation.x += Math.PI*delta * .125
 				object.rotation.y += Math.PI*delta * .125;
@@ -216,7 +216,7 @@
 	loader.load('../source/data/surfaces/S1-p.json',
 		function ( geometry ) {
 			var object = new THREE.Mesh( geometry, materialS );
-			scene.add( object );
+			arWorldRoot.add( object );
 		},
 	);
 	//////////////////////////////////////////////////////////////////////////////////

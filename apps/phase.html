@@ -190,7 +190,6 @@
 
 	var objectScale = .9;
 	
-
 	var objLoader = new THREE.OBJLoader();
   		objLoader.setPath("../source/data/surfaces/");
 	// 				Wavemode: S1
@@ -204,27 +203,12 @@
    		 	object.scale.set (objectScale,objectScale,objectScale);
    		 	scene.add(object);
   	  		onRenderFcts.push(function(delta){
-//				object.rotation.x += Math.PI*delta * .0125
+				object.rotation.x += Math.PI*delta * .125
 				object.rotation.y += Math.PI*delta * .125;
 				object.visible = wave_mode_1;
 			});
   		});
-	// 				Wavemode: S2
-  		objLoader.load("S2-p.obj", function (object) {
-			object.traverse( function ( child ) {
-				if ( child instanceof THREE.Mesh ) {
-					child.material = materialS;
-				}
-			});
-   		 	object.position.set (0,1,0);
-   		 	object.scale.set (objectScale,objectScale,objectScale);
-   		 	scene.add(object);
-  	  		onRenderFcts.push(function(delta){
-//				object.rotation.x += Math.PI*delta * .0125
-				object.rotation.y += Math.PI*delta * .125;
-				object.visible = wave_mode_2;
-			});
-  		});
+
 	///////////////////////////////////////////////////////////////
 	//////// LOAD GEOMETRY
 	///////////////////////////////////////////////////////////////
@@ -232,19 +216,9 @@
 	loader.load('../source/data/surfaces/S1-p.json',
 		function ( geometry ) {
 			var object = new THREE.Mesh( geometry, materialS );
-		scene.add( object );
-	},
-
-	// onProgress callback
-	function ( xhr ) {
-		console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
-	},
-
-	// onError callback
-	function ( err ) {
-		console.log( 'An error happened' );
-	}
-);
+			scene.add( object );
+		},
+	);
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////

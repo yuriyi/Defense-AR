@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <!-- three.js library -->
-<script src="../source/vendor/three.js/build/three.min.js"></script>
-<script src="../source/vendor/three.js/examples/js/loaders/MTLLoader.js"></script>
-<script src="../source/vendor/three.js/examples/js/loaders/OBJLoader.js"></script>
+<script src="../source/three.js/build/three.min.js"></script>
 <!-- ar.js -->
-<script src="../source/build/ar.js"></script>
-<script>THREEx.ArToolkitContext.baseURL = '../'</script>
+<script src="../source/AR.js/build/ar.js"></script>
+<script>THREEx.ArToolkitContext.baseURL = '../source/'</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace; color: red;'>
 	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
-		Test: S1 + S2
+		This is an AR test example.
 	</div>
+    <div style='position: absolute; z-index: 2; width:100%; text-align: center; top: 40px;'>
+        <button type="button" onclick="change()" value=1 id="mode_select">Wave-mode: S1</button>
+    </div>
+    
+<script>
+    // button controls
+    var wave_mode_1 = true;
+    var wave_mode_2 = false;
+    
+    function change() {
+        var btn = document.getElementById("mode_select");
+        if (btn.value == 1) {
+            wave_mode_1 = false;
+            wave_mode_2 = true;
+            btn.value = 2;
+            btn.innerHTML = "Wave-mode: S2";
+        } else if (btn.value == 2) {
+            wave_mode_1 = true;
+            wave_mode_2 = false;
+            btn.value = 1;
+            btn.innerHTML = "Wave-mode: S1";
+        }
+    }
+</script>
+    
 <script>
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Init
 	//////////////////////////////////////////////////////////////////////////////////
-
+    
 	// init renderer
 	var renderer	= new THREE.WebGLRenderer({
 		antialias: true,
@@ -53,7 +76,7 @@
 		
 		// // to read from an image
 		  // sourceType : 'image',
-		  // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/images/img1.jpg',
+		  // sourceUrl : THREEx.ArToolkitContext.baseURL + 'data/img.jpg',
 
 		// to read from a video
 		// sourceType : 'video',
@@ -69,10 +92,10 @@
 		onResize()
 	})
 	function onResize(){
-		arToolkitSource.onResize()	
-		arToolkitSource.copySizeTo(renderer.domElement)	
+		arToolkitSource.onResizeElement()	
+		arToolkitSource.copyElementSizeTo(renderer.domElement)	
 		if( arToolkitContext.arController !== null ){
-			arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)	
+			arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)	
 		}	
 	}
 	////////////////////////////////////////////////////////////////////////////////
@@ -82,7 +105,7 @@
 
 	// create atToolkitContext
 	var arToolkitContext = new THREEx.ArToolkitContext({
-		cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/camera_para.dat',
+		cameraParametersUrl: THREEx.ArToolkitContext.baseURL + 'data/camera_para.dat',
 		detectionMode: 'mono',
 	})
 	// initialize it
@@ -98,117 +121,108 @@
 		arToolkitContext.update( arToolkitSource.domElement )
 		
 		// update scene.visible if the marker is seen
-		scene.visible = camera.visible
+		//scene.visible = camera.visible
 	})
 		
 	////////////////////////////////////////////////////////////////////////////////
 	//          Create a ArMarkerControls
 	////////////////////////////////////////////////////////////////////////////////
-	
-	// init controls for camera
-	var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
+
+	var markerRoot = new THREE.Group
+	scene.add(markerRoot)
+	var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
 		type : 'pattern',
-		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/S1.patt',
-		 patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.hiro',
-		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/patt.kanji',
-		// as we control the camera, set changeMatrixMode: 'cameraTransformMatrix'
-		changeMatrixMode: 'cameraTransformMatrix'
+		
+		patternUrl : THREEx.ArToolkitContext.baseURL + 'data/patt.phd'
+		//patternUrl : THREEx.ArToolkitContext.baseURL + 'data/phd.patt'
+		//,changeMatrixMode: 'cameraTransformMatrix'
 	})
+
+	// build a smoothedControls
+	var smoothedRoot = new THREE.Group()
+	scene.add(smoothedRoot)
+	var smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, 
+{		lerpPosition: 0.4,
+		lerpQuaternion: 0.3,
+		lerpScale: 1,
+	})
+	onRenderFcts.push(function(delta){
+		smoothedControls.update(markerRoot)
+	})
+
 	// as we do changeMatrixMode: 'cameraTransformMatrix', start with invisible scene
-	scene.visible = false
+	//scene.visible = false
 
     //////////////////////////////////////////////////////////////////////////////////
     //			add an object in the scene
     //////////////////////////////////////////////////////////////////////////////////
 	
 	//			LIGHT
+	// var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	// var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	// light1.position.set( 0, 1, 0 );
+	// light2.position.set( 0, -1, 0 );
+	// scene.add(light1);
+	// scene.add(light2);
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//        create objects
+	//////////////////////////////////////////////////////////////////////////////////
+    
+	var arWorldRoot = smoothedRoot
+
+		//			LIGHT
 	var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	var light3 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	light1.position.set( 0, 1, 0 );
 	light2.position.set( 0, -1, 0 );
+	light3.position.set( 0, 0, 1 );
 	scene.add(light1);
 	scene.add(light2);
+	scene.add(light3);
 
-	//			MATERIAL
-
-	// var material	= new THREE.MeshPhongMaterial({
-	// 	transparent : true,
-	// 	opacity: .8,
-	// 	side: THREE.DoubleSide,
-	// 	color: 0x1592d2,
-	//	blending: THREE.NormalBlending
-	// });
-
-	var materialS1	= new THREE.MeshPhongMaterial({
-		transparent : true,
-		opacity: .7,
+	var materialS	= new THREE.MeshPhongMaterial({
 		side: THREE.FrontSide,
 		color: 0xff4fea,
 		specular: 0x750606,
 		shininess: 30
 	});
 
-	var materialS2	= new THREE.MeshNormalMaterial({
-		transparent : false,
-		opacity: 1,
-		side: THREE.FrontSide//,
-		// color: 0x48a6e8,
-		// specular: 0x1a3c1e,
-		// shininess: 0
-	});
-
-	//			EXISTING GEOMETRIES
-	// var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
-	// var mesh	= new THREE.Mesh( geometry, material );
-	// mesh.position.set (0,1,0);
-	// mesh.scale.set(.2,.2,.2);
-	// scene.add( mesh );
-	
-	// onRenderFcts.push(function(delta){
-	// 	mesh.rotation.y += Math.PI*delta;
-	// })
-
-	//////////////////////////////////////////////////////////////////////////////////
-	//        load object
-	//////////////////////////////////////////////////////////////////////////////////
 
 	var objectScale = .9;
-	
 
-		var objLoader = new THREE.OBJLoader();
-  		objLoader.setPath("./models/");
-	// 				Wavemode: S1
-  		objLoader.load("S1.obj", function (object) {
-			object.traverse( function ( child ) {
-				if ( child instanceof THREE.Mesh ) {
-					child.material = materialS1;
-				}
-			});
+	///////////////////////////////////////////////////////////////
+	//////// LOAD GEOMETRY
+	///////////////////////////////////////////////////////////////
+	var loader = new THREE.BufferGeometryLoader();
+	loader.load('../source/data/surfaces/S1-v.json',
+		function ( geometry ) {
+			var object = new THREE.Mesh( geometry, materialS );
    		 	object.position.set (0,1,0);
    		 	object.scale.set (objectScale,objectScale,objectScale);
-   		 	scene.add(object);
+			arWorldRoot.add( object );
   	  		onRenderFcts.push(function(delta){
-//				object.rotation.x += Math.PI*delta * .0125
-				object.rotation.y += Math.PI*delta * .125
+				object.rotation.x += Math.PI*delta * .125
+				object.rotation.y += Math.PI*delta * .125;
+				object.visible = wave_mode_1;
 			});
-  		});
-	// 				Wavemode: S2
-  		objLoader.load("S2.obj", function (object) {
-			object.traverse( function ( child ) {
-				if ( child instanceof THREE.Mesh ) {
-					child.material = materialS2;
-				}
-			});
+		},
+	);
+
+	loader.load('../source/data/surfaces/S2-v.json',
+		function ( geometry ) {
+			var object = new THREE.Mesh( geometry, materialS );
    		 	object.position.set (0,1,0);
    		 	object.scale.set (objectScale,objectScale,objectScale);
-   		 	scene.add(object);
+			arWorldRoot.add( object );
   	  		onRenderFcts.push(function(delta){
-//				object.rotation.x += Math.PI*delta * .0125
-				object.rotation.y += Math.PI*delta * .125
+				object.rotation.x += Math.PI*delta * .125
+				object.rotation.y += Math.PI*delta * .125;
+				object.visible = wave_mode_2;
 			});
-  		});
-
-
+		},
+	);
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////

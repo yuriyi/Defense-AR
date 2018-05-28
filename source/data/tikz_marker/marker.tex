@@ -1,0 +1,32 @@
+\documentclass[convert={convertexe={magick.exe},density=900,size=1080x1080,outext=.png}]{standalone}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\usepackage{pagecolor}
+\pagecolor{gray!10!white}
+\usetikzlibrary{decorations.markings,calc,arrows.meta,shapes,decorations.pathmorphing, decorations.text,bending,shapes.misc}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\tikzset{>=Stealth}
+\tikzset{cross/.style={cross out, draw=black},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+\pgfplotsset{compat=1.15}
+\begin{document}
+
+\begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4}]
+	\node[square,inner sep=0em,draw=none] at (0,0) {\phantom{\Huge\bf{PhD}}};
+	\node[square,inner sep=-1.75em,draw=none] at (0,0) [scale=1.55]{\Huge\scalebox{1}[1.4]{\textbf{P{\Large H}D}}};
+\end{tikzpicture}
+
+		
+\end{document}

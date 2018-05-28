@@ -175,10 +175,13 @@
 		//			LIGHT
 	var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	var light3 = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	light1.position.set( 0, 1, 0 );
 	light2.position.set( 0, -1, 0 );
+	light3.position.set( 0, 0, 1 );
 	scene.add(light1);
 	scene.add(light2);
+	scene.add(light3);
 
 	var materialS	= new THREE.MeshPhongMaterial({
 		side: THREE.FrontSide,

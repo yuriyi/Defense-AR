@@ -166,110 +166,75 @@
 	// scene.add(light2);
 
 	//////////////////////////////////////////////////////////////////////////////////
-	//        create text
+	//        create objects
 	//////////////////////////////////////////////////////////////////////////////////
     
 	var arWorldRoot = smoothedRoot
 
-	// // add a torus knot and a box
-	// var geometry	= new THREE.CubeGeometry(1,1,1);
-	// var material	= new THREE.MeshNormalMaterial({
-	// 	transparent : true,
-	// 	opacity: 0.5,
-	// 	side: THREE.FrontSide
-	// });
+		//			LIGHT
+	var light1 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	var light2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	light1.position.set( 0, 1, 0 );
+	light2.position.set( 0, -1, 0 );
+	scene.add(light1);
+	scene.add(light2);
 
-	// var mesh	= new THREE.Mesh( geometry, material );
-	// mesh.position.y	= geometry.parameters.height/3
-	// arWorldRoot.add( mesh );
+	var materialS1	= new THREE.MeshPhongMaterial({
+		transparent : true,
+		opacity: .7,
+		side: THREE.FrontSide,
+		color: 0xff4fea,
+		specular: 0x750606,
+		shininess: 30
+	});
+
+	var materialS2	= new THREE.MeshNormalMaterial({
+		transparent : false,
+		opacity: 1,
+		side: THREE.FrontSide//,
+		// color: 0x48a6e8,
+		// specular: 0x1a3c1e,
+		// shininess: 0
+	});
+
+
+	var objectScale = .9;
 	
-	// var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
-	// var material	= new THREE.MeshNormalMaterial(); 
-	// var mesh	= new THREE.Mesh( geometry, material );
-	// mesh.position.y	= 0.5
-	// arWorldRoot.add( mesh );
-	
-	// onRenderFcts.push(function(){
-	// 	mesh.rotation.x += 0.1
-	// })
 
-	var loader = new THREE.FontLoader();
-	loader.load( "../source/three.js/examples/fonts/helvetiker_regular.typeface.json", function ( font ) {
-
-			var textgeometry1 = new THREE.TextGeometry( 'HELLO', {
-				font: font,
-				size: 1,
-				height: .75,
-				curveSegments: 12
-			} );
-
-			var textgeometry2 = new THREE.TextGeometry( 'WORLD!', {
-				font: font,
-				size: 1,
-				height: .75,
-				curveSegments: 12
-			} );
-
-			textgeometry1.center()
-			textgeometry2.center()
-
-			var textmaterial	= new THREE.MeshNormalMaterial({
-				transparent : false,
-				opacity: 1,
-				side: THREE.FrontSide
+	var objLoader = new THREE.OBJLoader();
+  		objLoader.setPath("../source/data/surfaces/");
+	// 				Wavemode: S1
+  		objLoader.load("S1-p.obj", function (object) {
+			object.traverse( function ( child ) {
+				if ( child instanceof THREE.Mesh ) {
+					child.material = materialS1;
+				}
 			});
-
-			var textmesh1 = new THREE.Mesh( textgeometry1, 
-				textmaterial );
-			var textmesh2 = new THREE.Mesh( textgeometry2, 
-				textmaterial );
-
-
-					
-			var text1ypos = .9;
-			var text2ypos = .3;
-			var textscale = .4;
-
-			textmesh1.position.set (0,text1ypos,0);
-			textmesh2.position.set (0,text2ypos,0);
-
-			textmesh1.scale.set(textscale,textscale,textscale);
-			textmesh2.scale.set(textscale,textscale,textscale);
-		
-			//arWorldRoot.add(textmesh1)
-			//arWorldRoot.add(textmesh2)
-			
-			var group = new THREE.Group();
-			group.add( textmesh1 );
-			group.add( textmesh2 );
-			arWorldRoot.add(group);
-
-			var posFrame = .0005;
-			var rotrate = .001;
-			var tempypos = textmesh1.position.y;
-
-			onRenderFcts.push(function(){
-
-				tempypos += posFrame;
-
-				//textmesh1.position.y = text1ypos + Math.sin(2 * Math.PI * tempypos) / 3;
-				//textmesh2.position.y = text2ypos + Math.sin(2 * Math.PI * tempypos) / 3;
-				//textmesh1.rotation.y += Math.PI * rotrate;
-				//textmesh2.rotation.y += Math.PI * rotrate;
-
-				group.rotation.y += Math.PI * rotrate;
-				group.rotation.x += Math.PI * rotrate;
-
-				textmesh1.visible = wave_mode_1;
-				textmesh2.visible = wave_mode_2;
-
+   		 	object.position.set (0,1,0);
+   		 	object.scale.set (objectScale,objectScale,objectScale);
+   		 	scene.add(object);
+  	  		onRenderFcts.push(function(delta){
+//				object.rotation.x += Math.PI*delta * .0125
+				object.rotation.y += Math.PI*delta * .125;
+				object.visible = wave_mode_1;
 			});
-
-		} );
-
-
-
-	
+  		});
+	// 				Wavemode: S2
+  		objLoader.load("S2-p.obj", function (object) {
+			object.traverse( function ( child ) {
+				if ( child instanceof THREE.Mesh ) {
+					child.material = materialS2;
+				}
+			});
+   		 	object.position.set (0,1,0);
+   		 	object.scale.set (objectScale,objectScale,objectScale);
+   		 	scene.add(object);
+  	  		onRenderFcts.push(function(delta){
+//				object.rotation.x += Math.PI*delta * .0125
+				object.rotation.y += Math.PI*delta * .125;
+				object.visible = wave_mode_2;
+			});
+  		});
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650 64-bit) (preloaded format=pdflatex 2018.4.3)  28 MAY 2018 18:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650 64-bit) (preloaded format=pdflatex 2018.4.3)  28 MAY 2018 19:03
 entering extended mode
 **./letter.tex
 (letter.tex
@@ -238,11 +238,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 25.
-<../source/images/test.png, id=4, 2007.5pt x 2007.5pt>
+<../source/images/test.png, id=4, 513.92pt x 513.92pt>
 File: ../source/images/test.png Graphic file (type png)
 <use ../source/images/test.png>
 Package pdftex.def Info: ../source/images/test.png  used on input line 27.
-(pdftex.def)             Requested size: 455.24408pt x 455.22131pt.
+(pdftex.def)             Requested size: 455.24408pt x 455.25438pt.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 28.
  [1
 
@@ -267,7 +267,7 @@ Here is how much of TeX's memory you used:
 <C:/Users/yuriyi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmr17.pfb><C:/Users/yuriyi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmtt12.pfb>
-Output written on letter.pdf (1 page, 60678 bytes).
+Output written on letter.pdf (1 page, 29121 bytes).
 PDF statistics:
  23 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)

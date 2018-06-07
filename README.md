@@ -1,6 +1,6 @@
 # AR web examples for my defense
 
-A few examples to illustrate the slowness and ray surfaces of the quasi-shear waves in anisotropic media:
+A few examples to illustrate the complexity of slowness and ray surfaces of quasi-shear waves in anisotropic media:
 
 ## Test model
 

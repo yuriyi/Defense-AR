@@ -2,9 +2,11 @@
 
 A few examples to illustrate the slowness and ray surfaces of the quasi-shear waves in anisotropic media:
 
-## Relatively simple model
+## Test model
 
 - **Test** : Open to test if it works on your device. [Test](https://yuriyi.github.io/Defense-AR/apps/test.html)
+
+## Relatively simple model
 
 - **Phase domain**: Slowness surfaces of the quasi shear waves in an orthorhombic model. [Phase surfaces](https://yuriyi.github.io/Defense-AR/apps/phase.html)
 
@@ -12,6 +14,6 @@ A few examples to illustrate the slowness and ray surfaces of the quasi-shear wa
 
 ## Mindnumbingly complicated stuff
 
-- **Phase domain**: Slowness surfaces of the quasi shear waves in an orthorhombic model. [Phase surfaces](https://yuriyi.github.io/Defense-AR/apps/phase_singularities.html)
+- **Phase domain**: Slowness surfaces of the quasi shear waves in an orthorhombic model with 16(!) singularity directions. [Phase surfaces](https://yuriyi.github.io/Defense-AR/apps/phase_singularities.html)
 
-- **Group domain**: Group velocity surfaces of the quasi shear waves in an orthorhombic model. [Wave surfaces](https://yuriyi.github.io/Defense-AR/apps/group_singularities.html)
+- **Group domain**: Group velocity surfaces of the quasi shear waves in an orthorhombic model with 16(!) singularity directions. [Wave surfaces](https://yuriyi.github.io/Defense-AR/apps/group_singularities.html)

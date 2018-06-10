@@ -2,6 +2,9 @@
 
 A few examples to illustrate the complexity of slowness and ray surfaces of quasi-shear waves in anisotropic media:
 
+Here is a difference between phase and group directions in anisotropic world:
+![alt text](./source/images/PhaseGroup.png)
+
 ## Test model
 
 - **Test** : Open to test if it works on your device. [Test](https://yuriyi.github.io/Defense-AR/apps/test.html)

@@ -38,3 +38,5 @@ Here is a difference between phase (or wavefront) and group (or energy propagati
 - **Group domain**: Group velocity surfaces of the quasi shear waves in an orthorhombic model with 16(!) singularity directions. [Wave surfaces](https://yuriyi.github.io/Defense-AR/apps/group_singularities.html)
 
 The stuff above is made possible by [AR.js](https://github.com/jeromeetienne/AR.js) and [three.js](https://github.com/mrdoob/three.js/) libraries. Phase and group velocity surfaces triangulation is done using ANISRF routine of the package [FORMS](http://sw3d.mff.cuni.cz/software/sw3dcd21/forms/forms.htm).
+
+Feel free to contact me on [slack](https://softwareunderground.org) @yus.ivanov if you have any questions!

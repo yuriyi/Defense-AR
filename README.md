@@ -1,14 +1,22 @@
 # AR web examples for my defense
 
-A few examples to illustrate the complexity of slowness and ray surfaces of quasi-shear waves in anisotropic media:
+## What and how
+The examples illustrate complexity of slowness and ray surfaces of quasi-shear waves in anisotropic media. To run the examples, you will need a phone or a laptop with a camera and a marker either printed or displayed on another device. Access the marker [here](./source/images/phd.png).
 
-Here is a difference between phase and group directions in anisotropic world:
+## Instructions
+1. Open any link from the list below on your device. Start with [test](https://yuriyi.github.io/Defense-AR/apps/test.html) to check the functionality
+2. Give access to the camera
+3. Point at the [marker](./source/images/phd.png)
+4. Use button on top of the screen to toggle between two shear-waves
+5. Move either the marker or the device and enjoy the show!
+
+Here is a difference between phase (or wavefront) and group (or energy propagation) directions in anisotropic world:
 
 ![alt text](./source/images/PhaseGroup.png)
 
 ## Test model
 
-- **Test** : Open to test if it works on your device. [Test](https://yuriyi.github.io/Defense-AR/apps/test.html)
+- **Test** : Test example to see if AR works on your device. [Test](https://yuriyi.github.io/Defense-AR/apps/test.html)
 
 ## Relatively simple model
 
@@ -21,3 +29,5 @@ Here is a difference between phase and group directions in anisotropic world:
 - **Phase domain**: Slowness surfaces of the quasi shear waves in an orthorhombic model with 16(!) singularity directions. [Phase surfaces](https://yuriyi.github.io/Defense-AR/apps/phase_singularities.html)
 
 - **Group domain**: Group velocity surfaces of the quasi shear waves in an orthorhombic model with 16(!) singularity directions. [Wave surfaces](https://yuriyi.github.io/Defense-AR/apps/group_singularities.html)
+
+The stuff above is made possible by [AR.js](https://github.com/jeromeetienne/AR.js) and [three.js](https://github.com/mrdoob/three.js/) libraries. Phase and group velocity surfaces triangulation is done using ANISRF routine of the package [FORMS](http://sw3d.mff.cuni.cz/software/sw3dcd21/forms/forms.htm)

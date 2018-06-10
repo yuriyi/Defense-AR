@@ -4,7 +4,7 @@
 The examples illustrate complexity of slowness and ray surfaces of quasi-shear waves in anisotropic media. To run the examples, you will need a phone or a laptop with a camera and the [marker](https://raw.githubusercontent.com/yuriyi/Defense-AR/master/source/images/phd.png) either printed or displayed on another device.
 
 ## Instructions
-1. Open any link from the list below on your device. Start with [test](https://yuriyi.github.io/Defense-AR/apps/test.html) to check the functionality
+1. Open any link from the list below on your device. Start with [test](https://yuriyi.github.io/Defense-AR/apps/test.html) to check the functionality. Note, actual examples will take a few seconds to download the model (~10Mb)
 2. Give access to the camera
 3. Point the camera at the [marker](https://raw.githubusercontent.com/yuriyi/Defense-AR/master/source/images/phd.png)
 4. Use the button on top of the screen to toggle between two shear-waves

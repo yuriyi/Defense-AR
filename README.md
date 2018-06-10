@@ -11,6 +11,10 @@ The examples illustrate complexity of slowness and ray surfaces of quasi-shear w
 5. Feel free to move either the marker or the device
 6. Enjoy!
 
+Wave propagation in anisotropic media:
+
+![alt text](./source/images/PhaseGroup_movie.gif)
+
 Here is a difference between phase (or wavefront) and group (or energy propagation) directions in anisotropic world:
 
 ![alt text](./source/images/PhaseGroup.png)

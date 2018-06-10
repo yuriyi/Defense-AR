@@ -8,7 +8,8 @@ The examples illustrate complexity of slowness and ray surfaces of quasi-shear w
 2. Give access to the camera
 3. Point the camera at the [marker](https://raw.githubusercontent.com/yuriyi/Defense-AR/master/source/images/phd.png)
 4. Use the button on top of the screen to toggle between two shear-waves
-5. Move either the marker or the device and enjoy the show!
+5. Feel free to move either the marker or the device
+6. Enjoy!
 
 Here is a difference between phase (or wavefront) and group (or energy propagation) directions in anisotropic world:
 

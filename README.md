@@ -11,7 +11,7 @@ The examples illustrate complexity of slowness and ray surfaces of quasi-shear w
 5. Feel free to move either the marker or the device
 6. Enjoy!
 
-Wave propagation in finely-layered isotropic media:
+Wave propagation in finely layered isotropic media:
 
 ![alt text](./source/images/PhaseGroup_movie.gif)
 
